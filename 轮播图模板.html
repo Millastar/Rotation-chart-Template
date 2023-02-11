@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>轮播图模板</title>
+    <style>
+        /* 清除浏览器默认内外边距 */
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        /* 清除列表小圆点 */
+        li {
+            list-style: none;
+        }
+
+        .tb-promo {
+            /* 子绝父相 */
+            position: relative;
+            width: 520px;
+            height: 300px;
+            /* 上下间距50px，左右居中 */
+            margin: 50px auto;
+        }
+
+        .tb-promo img {
+            /* 设置的和父盒子长宽一样，使其铺满整个盒子 */
+            width: 520px;
+            height: 300px;
+        }
+
+        /* 并集选择器 */
+        .prev,
+        .next {
+            position: absolute;
+            /* 使绝对定位的盒子垂直居中，方法为先下降到父盒子的一半 */
+            top: 50%;
+            /* 然后再上升自身高度的一半回来 */
+            margin-top: -15px;
+            /* 加了定位或浮动的盒子可以直接设置高度和宽度 */
+            width: 20px;
+            height: 30px;
+            background: rgba(0, 0, 0, .3);
+            text-align: center;
+            line-height: 30px;
+            color: #fff;
+            text-decoration: none;
+        }
+
+        .prev {
+            /* 绝对定位靠左贴 */
+            left: 0;
+            /* 给上右和下右两处加高度一半的圆角 */
+            border-top-right-radius: 15px;
+            border-bottom-right-radius: 15px;
+        }
+
+        .next {
+            right: 0;
+            border-top-left-radius: 15px;
+            border-bottom-left-radius: 15px;
+        }
+
+        .promo-nav {
+            /* 采用绝对定位定在下方 */
+            position: absolute;
+            /* 距离父盒子下侧15px */
+            bottom: 15px;
+            /* 居中，方法和上面一样，先距离父盒子左边一半 */
+            left: 50%;
+            /* 然后再左移自身宽度的一半 */
+            margin-left: -35px;
+            width: 70px;
+            height: 13px;
+            /* 背景设为半透明白色 */
+            background: rgba(255, 255, 255, .3);
+            /* 将直角边改成圆角，设置为高度的一半，但最好不要有小数点，所以取7px */
+            border-radius: 7px;
+        }
+
+        .promo-nav li {
+            /* 浮动让几个小圆点一排显示 */
+            float: left;
+            width: 8px;
+            height: 8px;
+            /* 几个小圆点是白色的，这里注意是背景颜色，用color是设置的li里的文字颜色 */
+            background-color: #fff;
+            /* 变成圆形 */
+            border-radius: 50%;
+            margin: 3px;
+        }
+
+        /* 不要忘记选择器权重的问题，所以选标签尽量写具体一点，这是个好习惯 */
+        .promo-nav .selected {
+            background-color: #ff5000;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="tb-promo">
+        <img src="images/img.jpg" alt="">
+        <!-- 左箭头 -->
+        <a href="#" class="prev"> &lt; </a>
+        <!-- 右箭头 -->
+        <a href="#" class="next"> &gt; </a>
+        <!-- 小圆点 -->
+        <ul class="promo-nav">
+            <li class="selected"></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+        </ul>
+    </div>
+</body>
+
+</html>
